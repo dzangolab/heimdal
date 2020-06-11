@@ -10,6 +10,7 @@ class ResponseFactory
     public static function make(Exception $e)
     {
         return new JsonResponse([
+            'code' => $e->getCode(),
             'status' => 'error'
         ]);
     }

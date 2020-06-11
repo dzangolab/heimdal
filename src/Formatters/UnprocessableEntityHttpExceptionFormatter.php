@@ -33,9 +33,11 @@ class UnprocessableEntityHttpExceptionFormatter extends BaseFormatter
             }, $item));
         }, []);
 
-        $response->setData([
-            'errors' => $data
-        ]);
+        $response->setData(
+            array_merge($response->getData(true), [
+                'errors' => $data
+            ])
+        );
 
         return $response;
     }
